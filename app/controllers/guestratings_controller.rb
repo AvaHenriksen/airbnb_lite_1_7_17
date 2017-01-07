@@ -1,6 +1,6 @@
 class GuestratingsController < ApplicationController
   def index
-    @guestratings = Guestrating.all
+    @guestratings = Guestrating.page(params[:page]).per(10)
 
     render("guestratings/index.html.erb")
   end
