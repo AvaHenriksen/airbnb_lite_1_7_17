@@ -20,7 +20,7 @@
       <% @guestratings.each do |guestrating| %>
       <tr>
         <td><%= guestrating.host.email %></td>
-        <td><%= guestrating.guest_id %></td>
+        <td><%= guestrating.guest.created_at %></td>
         <td><%= guestrating.booking_id %></td>
         <td><%= guestrating.body %></td>
         <td><%= guestrating.rating %></td>
