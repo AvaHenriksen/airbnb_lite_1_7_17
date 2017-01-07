@@ -43,7 +43,7 @@
         <td><%= listing.default_price_per_night %></td>
         <td><%= listing.nights_available %></td>
         <td><%= listing.price %></td>
-        <td><%= listing.host_id %></td>
+        <td><%= listing.host.email %></td>
         <td>
           <a href="/listings/<%= listing.id %>" class="btn btn-primary">Show</a>
           <a href="/listings/<%= listing.id %>/edit" class="btn btn-warning">Edit</a>
