@@ -1,0 +1,56 @@
+<div class="page-header">
+  <h1>
+    Listings
+    <a href="/listings/new" class="btn btn-lg btn-success">New Listing</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Title</th>
+        <th>Private room or entire home</th>
+        <th>Photos</th>
+        <th>Description</th>
+        <th>Bedrooms</th>
+        <th>Bathrooms</th>
+        <th>Beds</th>
+        <th>Max occupants</th>
+        <th>Neighborhood</th>
+        <th>City</th>
+        <th>Policies</th>
+        <th>Default price per night</th>
+        <th>Nights available</th>
+        <th>Price</th>
+        <th>Host</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @listings.each do |listing| %>
+      <tr>
+        <td><%= listing.title %></td>
+        <td><%= listing.private_room_or_entire_home %></td>
+        <td><%= listing.photos %></td>
+        <td><%= listing.description %></td>
+        <td><%= listing.bedrooms %></td>
+        <td><%= listing.bathrooms %></td>
+        <td><%= listing.beds %></td>
+        <td><%= listing.max_occupants %></td>
+        <td><%= listing.neighborhood %></td>
+        <td><%= listing.city %></td>
+        <td><%= listing.policies %></td>
+        <td><%= listing.default_price_per_night %></td>
+        <td><%= listing.nights_available %></td>
+        <td><%= listing.price %></td>
+        <td><%= listing.host_id %></td>
+        <td>
+          <a href="/listings/<%= listing.id %>" class="btn btn-primary">Show</a>
+          <a href="/listings/<%= listing.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_listing/<%= listing.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
