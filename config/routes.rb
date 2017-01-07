@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  devise_for :guests
+  # Routes for the Guest resource:
+  # READ
+  get "/guests", :controller => "guests", :action => "index"
+  get "/guests/:id", :controller => "guests", :action => "show"
+
+
   # Routes for the Review resource:
   # CREATE
   get "/reviews/new", :controller => "reviews", :action => "new"
