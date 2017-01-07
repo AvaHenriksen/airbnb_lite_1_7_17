@@ -145,14 +145,8 @@
         <input type="text" id="price" name="price" placeholder="Price" class="form-control" value="<%= @listing.price %>">
       </div>
 
-      <!-- Label and input for host_id -->
-      <div class="form-group">
-        <label for="host_id" class="control-label">
-          Host
-        </label>
-
-        <%= select_tag(:host_id, options_from_collection_for_select(Host.all, :id, :email, @listing.host_id), :class => "form-control") %>
-      </div>
+      
+      
 
       <button class="btn btn-warning">
         Update Listing
