@@ -1,6 +1,9 @@
 class Host < ApplicationRecord
   # Direct associations
 
+  has_many   :bookings,
+             :dependent => :destroy
+
   has_many   :ratings,
              :class_name => "Guestrating",
              :dependent => :destroy
