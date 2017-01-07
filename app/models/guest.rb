@@ -1,6 +1,10 @@
 class Guest < ApplicationRecord
   # Direct associations
 
+  has_many   :ratings,
+             :class_name => "Guestrating",
+             :dependent => :destroy
+
   has_many   :messages,
              :dependent => :destroy
 
