@@ -16,6 +16,8 @@ class ListingsController < ApplicationController
   end
 
   def show
+    @bookmark = Bookmark.new
+    @review = Review.new
     @listing = Listing.find(params[:id])
 
     render("listings/show.html.erb")

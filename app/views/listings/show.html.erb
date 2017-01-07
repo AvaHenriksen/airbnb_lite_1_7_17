@@ -95,6 +95,92 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_review" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for listing_id -->
+      <input type="hidden" name="listing_id" value="<%= @listing.id %>">
+
+      <!-- Label and input for guest_id -->
+      <div class="form-group">
+        <label for="guest_id" class="control-label">
+          Guest
+        </label>
+
+        <%= select_tag(:guest_id, options_from_collection_for_select(Guest.all, :id, :created_at), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for accuracy -->
+      <div class="form-group">
+        <label for="accuracy" class="control-label">
+          Accuracy
+        </label>
+
+        <input type="text" id="accuracy" name="accuracy" placeholder="Accuracy" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for communication -->
+      <div class="form-group">
+        <label for="communication" class="control-label">
+          Communication
+        </label>
+
+        <input type="text" id="communication" name="communication" placeholder="Communication" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for cleanliness -->
+      <div class="form-group">
+        <label for="cleanliness" class="control-label">
+          Cleanliness
+        </label>
+
+        <input type="text" id="cleanliness" name="cleanliness" placeholder="Cleanliness" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for location -->
+      <div class="form-group">
+        <label for="location" class="control-label">
+          Location
+        </label>
+
+        <input type="text" id="location" name="location" placeholder="Location" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for check_in_15 -->
+      <div class="form-group">
+        <label for="check_in_15" class="control-label">
+          Check in 15
+        </label>
+
+        <input type="text" id="check_in_15" name="check_in_15" placeholder="Check in 15" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for value -->
+      <div class="form-group">
+        <label for="value" class="control-label">
+          Value
+        </label>
+
+        <input type="text" id="value" name="value" placeholder="Value" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for body -->
+      <div class="form-group">
+        <label for="body" class="control-label">
+          Body
+        </label>
+
+        <textarea id="body" name="body" placeholder="Body" class="form-control" rows="3"></textarea>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Review
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -126,6 +212,29 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_bookmark" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for guest_id -->
+      <div class="form-group">
+        <label for="guest_id" class="control-label">
+          Guest
+        </label>
+
+        <%= select_tag(:guest_id, options_from_collection_for_select(Guest.all, :id, :created_at), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for listing_id -->
+      <input type="hidden" name="listing_id" value="<%= @listing.id %>">
+
+      <button class="btn btn-block btn-success">
+        Create Bookmark
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
