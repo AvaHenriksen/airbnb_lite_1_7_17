@@ -1,0 +1,49 @@
+<div class="page-header">
+  <h3>Review #<%= @review.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Listing</dt>
+      <dd><%= @review.listing_id %></dd>
+
+      <dt>Guest</dt>
+      <dd><%= @review.guest_id %></dd>
+
+      <dt>Accuracy</dt>
+      <dd><%= @review.accuracy %></dd>
+
+      <dt>Communication</dt>
+      <dd><%= @review.communication %></dd>
+
+      <dt>Cleanliness</dt>
+      <dd><%= @review.cleanliness %></dd>
+
+      <dt>Location</dt>
+      <dd><%= @review.location %></dd>
+
+      <dt>Check in 15</dt>
+      <dd><%= @review.check_in_15 %></dd>
+
+      <dt>Value</dt>
+      <dd><%= @review.value %></dd>
+
+      <dt>Body</dt>
+      <dd><%= @review.body %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/reviews" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/reviews/<%= @review.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_review/<%= @review.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

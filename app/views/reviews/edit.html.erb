@@ -1,0 +1,109 @@
+<!-- Validation failure messages -->
+<% if @review.errors.any? %>
+  <% @review.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Review #<%= @review.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_review/<%= @review.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for listing_id -->
+      <div class="form-group">
+        <label for="listing_id" class="control-label">
+          Listing
+        </label>
+
+        <input type="text" id="listing_id" name="listing_id" placeholder="Listing" class="form-control" value="<%= @review.listing_id %>">
+      </div>
+
+      <!-- Label and input for guest_id -->
+      <div class="form-group">
+        <label for="guest_id" class="control-label">
+          Guest
+        </label>
+
+        <input type="text" id="guest_id" name="guest_id" placeholder="Guest" class="form-control" value="<%= @review.guest_id %>">
+      </div>
+
+      <!-- Label and input for accuracy -->
+      <div class="form-group">
+        <label for="accuracy" class="control-label">
+          Accuracy
+        </label>
+
+        <input type="text" id="accuracy" name="accuracy" placeholder="Accuracy" class="form-control" value="<%= @review.accuracy %>">
+      </div>
+
+      <!-- Label and input for communication -->
+      <div class="form-group">
+        <label for="communication" class="control-label">
+          Communication
+        </label>
+
+        <input type="text" id="communication" name="communication" placeholder="Communication" class="form-control" value="<%= @review.communication %>">
+      </div>
+
+      <!-- Label and input for cleanliness -->
+      <div class="form-group">
+        <label for="cleanliness" class="control-label">
+          Cleanliness
+        </label>
+
+        <input type="text" id="cleanliness" name="cleanliness" placeholder="Cleanliness" class="form-control" value="<%= @review.cleanliness %>">
+      </div>
+
+      <!-- Label and input for location -->
+      <div class="form-group">
+        <label for="location" class="control-label">
+          Location
+        </label>
+
+        <input type="text" id="location" name="location" placeholder="Location" class="form-control" value="<%= @review.location %>">
+      </div>
+
+      <!-- Label and input for check_in_15 -->
+      <div class="form-group">
+        <label for="check_in_15" class="control-label">
+          Check in 15
+        </label>
+
+        <input type="text" id="check_in_15" name="check_in_15" placeholder="Check in 15" class="form-control" value="<%= @review.check_in_15 %>">
+      </div>
+
+      <!-- Label and input for value -->
+      <div class="form-group">
+        <label for="value" class="control-label">
+          Value
+        </label>
+
+        <input type="text" id="value" name="value" placeholder="Value" class="form-control" value="<%= @review.value %>">
+      </div>
+
+      <!-- Label and input for body -->
+      <div class="form-group">
+        <label for="body" class="control-label">
+          Body
+        </label>
+
+        <textarea id="body" name="body" placeholder="Body" class="form-control" rows="3"><%= @review.body %></textarea>
+      </div>
+
+      <button class="btn btn-warning">
+        Update Review
+      </button>
+      or
+      <a href="/reviews/<%= @review.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
