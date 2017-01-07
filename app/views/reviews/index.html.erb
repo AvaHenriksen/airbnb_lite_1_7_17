@@ -23,8 +23,20 @@
 
       <% @reviews.each do |review| %>
       <tr>
-        <td><%= review.listing.title %></td>
-        <td><%= review.guest.created_at %></td>
+        <td>
+          <% if review.listing.present? %>
+            <a href="/listings/<%= review.listing.id %>">
+              <%= review.listing.title %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if review.guest.present? %>
+            <a href="/guests/<%= review.guest.id %>">
+              <%= review.guest.created_at %>
+            </a>
+          <% end %>
+        </td>
         <td><%= review.accuracy %></td>
         <td><%= review.communication %></td>
         <td><%= review.cleanliness %></td>

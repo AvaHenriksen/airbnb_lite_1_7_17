@@ -19,9 +19,27 @@
 
       <% @guestratings.each do |guestrating| %>
       <tr>
-        <td><%= guestrating.host.email %></td>
-        <td><%= guestrating.guest.created_at %></td>
-        <td><%= guestrating.booking.guest_id %></td>
+        <td>
+          <% if guestrating.host.present? %>
+            <a href="/hosts/<%= guestrating.host.id %>">
+              <%= guestrating.host.email %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if guestrating.guest.present? %>
+            <a href="/guests/<%= guestrating.guest.id %>">
+              <%= guestrating.guest.created_at %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if guestrating.booking.present? %>
+            <a href="/bookings/<%= guestrating.booking.id %>">
+              <%= guestrating.booking.guest_id %>
+            </a>
+          <% end %>
+        </td>
         <td><%= guestrating.body %></td>
         <td><%= guestrating.rating %></td>
         <td>

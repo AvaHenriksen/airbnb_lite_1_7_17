@@ -17,8 +17,20 @@
 
       <% @messages.each do |message| %>
       <tr>
-        <td><%= message.host.email %></td>
-        <td><%= message.guest.created_at %></td>
+        <td>
+          <% if message.host.present? %>
+            <a href="/hosts/<%= message.host.id %>">
+              <%= message.host.email %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if message.guest.present? %>
+            <a href="/guests/<%= message.guest.id %>">
+              <%= message.guest.created_at %>
+            </a>
+          <% end %>
+        </td>
         <td><%= message.text %></td>
         <td>
           <a href="/messages/<%= message.id %>" class="btn btn-primary">Show</a>

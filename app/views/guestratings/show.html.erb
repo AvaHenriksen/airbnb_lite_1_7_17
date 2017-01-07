@@ -6,13 +6,31 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Host</dt>
-      <dd><%= @guestrating.host_id %></dd>
+      <dd>
+        <% if @guestrating.host.present? %>
+          <a href="/hosts/<%= @guestrating.host_id %>">
+            <%= @guestrating.host.email %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Guest</dt>
-      <dd><%= @guestrating.guest_id %></dd>
+      <dd>
+        <% if @guestrating.guest.present? %>
+          <a href="/guests/<%= @guestrating.guest_id %>">
+            <%= @guestrating.guest.created_at %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Booking</dt>
-      <dd><%= @guestrating.booking_id %></dd>
+      <dd>
+        <% if @guestrating.booking.present? %>
+          <a href="/bookings/<%= @guestrating.booking_id %>">
+            <%= @guestrating.booking.guest_id %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Body</dt>
       <dd><%= @guestrating.body %></dd>
