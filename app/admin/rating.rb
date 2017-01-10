@@ -1,4 +1,4 @@
-ActiveAdmin.register Guestrating do
+ActiveAdmin.register Rating do
 
  permit_params :host_id, :guest_id, :booking_id, :body, :rating
 

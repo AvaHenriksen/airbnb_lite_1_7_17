@@ -1,6 +1,6 @@
-class CreateGuestratings < ActiveRecord::Migration
+class CreateRatings < ActiveRecord::Migration
   def change
-    create_table :guestratings do |t|
+    create_table :ratings do |t|
       t.integer :host_id
       t.integer :guest_id
       t.integer :booking_id

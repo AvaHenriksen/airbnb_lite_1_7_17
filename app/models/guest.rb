@@ -11,7 +11,6 @@ class Guest < ApplicationRecord
              :dependent => :destroy
 
   has_many   :ratings,
-             :class_name => "Guestrating",
              :dependent => :destroy
 
   has_many   :messages,

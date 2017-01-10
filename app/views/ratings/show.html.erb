@@ -1,0 +1,55 @@
+<div class="page-header">
+  <h3>Rating #<%= @rating.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Host</dt>
+      <dd>
+        <% if @rating.host.present? %>
+          <a href="/hosts/<%= @rating.host_id %>">
+            <%= @rating.host.email %>
+          </a>
+        <% end %>
+      </dd>
+
+      <dt>Guest</dt>
+      <dd>
+        <% if @rating.guest.present? %>
+          <a href="/guests/<%= @rating.guest_id %>">
+            <%= @rating.guest.created_at %>
+          </a>
+        <% end %>
+      </dd>
+
+      <dt>Booking</dt>
+      <dd>
+        <% if @rating.booking.present? %>
+          <a href="/bookings/<%= @rating.booking_id %>">
+            <%= @rating.booking.guest_id %>
+          </a>
+        <% end %>
+      </dd>
+
+      <dt>Body</dt>
+      <dd><%= @rating.body %></dd>
+
+      <dt>Rating</dt>
+      <dd><%= @rating.rating %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/ratings" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/ratings/<%= @rating.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_rating/<%= @rating.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

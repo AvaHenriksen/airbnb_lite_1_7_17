@@ -96,20 +96,20 @@
         Ratings
       </li>
 
-      <% @host.ratings.each do |guestrating| %>
+      <% @host.ratings.each do |rating| %>
         <li class="list-group-item">
-          <a href="/guestratings/<%= guestrating.id %>">
-            <%= guestrating.host_id %>
+          <a href="/ratings/<%= rating.id %>">
+            <%= rating.host_id %>
           </a>
           <div class="btn-group btn-group-xs pull-right">
-            <a href="/guestratings/<%= guestrating.id %>" class="btn btn-primary">
+            <a href="/ratings/<%= rating.id %>" class="btn btn-primary">
               <i class="fa fa-search-plus"></i>
             </a>
-            <%if current_user == guestrating.guest %>
-              <a href="/guestratings/<%= guestrating.id %>/edit" class="btn btn-warning">
+            <%if current_user == rating.guest %>
+              <a href="/ratings/<%= rating.id %>/edit" class="btn btn-warning">
                 <i class="fa fa-edit"></i>
               </a>
-              <a href="/delete_guestrating/<%= guestrating.id %>" class="btn btn-danger" rel="nofollow">
+              <a href="/delete_rating/<%= rating.id %>" class="btn btn-danger" rel="nofollow">
                 <i class="fa fa-trash-o"></i>
               </a>
             <% end %>

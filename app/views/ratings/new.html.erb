@@ -1,6 +1,6 @@
 <!-- Validation failure messages -->
-<% if @guestrating.errors.any? %>
-  <% @guestrating.errors.full_messages.each do |message| %>
+<% if @rating.errors.any? %>
+  <% @rating.errors.full_messages.each do |message| %>
     <div class="alert alert-dismissable alert-danger">
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
       <%= message %>
@@ -9,12 +9,12 @@
 <% end %>
 
 <div class="page-header">
-  <h3>Edit Guestrating #<%= @guestrating.id %></h3>
+  <h3>Add Rating</h3>
 </div>
 
 <div class="row">
   <div class="col-md-12">
-    <form action="/update_guestrating/<%= @guestrating.id %>" method="post">
+    <form action="/create_rating" method="post">
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
@@ -24,7 +24,7 @@
           Host
         </label>
 
-        <%= select_tag(:host_id, options_from_collection_for_select(Host.all, :id, :email, @guestrating.host_id), :class => "form-control") %>
+        <%= select_tag(:host_id, options_from_collection_for_select(Host.all, :id, :email, @rating.host_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for guest_id -->
@@ -33,7 +33,7 @@
           Guest
         </label>
 
-        <%= select_tag(:guest_id, options_from_collection_for_select(Guest.all, :id, :created_at, @guestrating.guest_id), :class => "form-control") %>
+        <%= select_tag(:guest_id, options_from_collection_for_select(Guest.all, :id, :created_at, @rating.guest_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for booking_id -->
@@ -42,7 +42,7 @@
           Booking
         </label>
 
-        <%= select_tag(:booking_id, options_from_collection_for_select(Booking.all, :id, :guest_id, @guestrating.booking_id), :class => "form-control") %>
+        <%= select_tag(:booking_id, options_from_collection_for_select(Booking.all, :id, :guest_id, @rating.booking_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for body -->
@@ -51,7 +51,7 @@
           Body
         </label>
 
-        <textarea id="body" name="body" placeholder="Body" class="form-control" rows="3"><%= @guestrating.body %></textarea>
+        <textarea id="body" name="body" placeholder="Body" class="form-control" rows="3"><%= @rating.body %></textarea>
       </div>
 
       <!-- Label and input for rating -->
@@ -60,14 +60,14 @@
           Rating
         </label>
 
-        <input type="text" id="rating" name="rating" placeholder="Rating" class="form-control" value="<%= @guestrating.rating %>">
+        <input type="text" id="rating" name="rating" placeholder="Rating" class="form-control" value="<%= @rating.rating %>">
       </div>
 
-      <button class="btn btn-warning">
-        Update Guestrating
+      <button class="btn btn-success">
+        Create Rating
       </button>
       or
-      <a href="/guestratings/<%= @guestrating.id %>">Cancel</a>
+      <a href="/ratings">Cancel</a>
     </form>
   </div>
 </div>
