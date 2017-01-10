@@ -36,21 +36,21 @@ Rails.application.routes.draw do
   get "/delete_booking/:id", :controller => "bookings", :action => "destroy"
   #------------------------------
 
-  # Routes for the Guestrating resource:
+  # Routes for the Rating resource:
   # CREATE
-  get "/guestratings/new", :controller => "guestratings", :action => "new"
-  post "/create_guestrating", :controller => "guestratings", :action => "create"
+  get "/ratings/new", :controller => "ratings", :action => "new"
+  post "/create_rating", :controller => "ratings", :action => "create"
 
   # READ
-  get "/guestratings", :controller => "guestratings", :action => "index"
-  get "/guestratings/:id", :controller => "guestratings", :action => "show"
+  get "/ratings", :controller => "ratings", :action => "index"
+  get "/ratings/:id", :controller => "ratings", :action => "show"
 
   # UPDATE
-  get "/guestratings/:id/edit", :controller => "guestratings", :action => "edit"
-  post "/update_guestrating/:id", :controller => "guestratings", :action => "update"
+  get "/ratings/:id/edit", :controller => "ratings", :action => "edit"
+  post "/update_rating/:id", :controller => "ratings", :action => "update"
 
   # DELETE
-  get "/delete_guestrating/:id", :controller => "guestratings", :action => "destroy"
+  get "/delete_rating/:id", :controller => "ratings", :action => "destroy"
   #------------------------------
 
   devise_for :guests

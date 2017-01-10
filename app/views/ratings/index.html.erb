@@ -1,11 +1,11 @@
 <div class="page-header">
   <h1>
-    Guestratings
-    <a href="/guestratings/new" class="btn btn-lg btn-success">New Guestrating</a>
+    Ratings
+    <a href="/ratings/new" class="btn btn-lg btn-success">New Rating</a>
   </h1>
 </div><div class="row mb-1">
   <div class="col-md-12">
-    <%= search_form_for @q, :class => collapse_search_form, :id => "guestratings_filters" do |f| %>
+    <%= search_form_for @q, :class => collapse_search_form, :id => "ratings_filters" do |f| %>
       <p class="lead">Narrow results:</p>
 
         <div class="form-group">
@@ -112,9 +112,9 @@
 
       <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
 
-      <a href="/guestratings" class="btn btn-default btn-block mb-1">Clear filters</a>
+      <a href="/ratings" class="btn btn-default btn-block mb-1">Clear filters</a>
     <% end %>
-    <a class="btn btn-default btn-block mb-1" data-toggle="collapse" href="#guestratings_filters">
+    <a class="btn btn-default btn-block mb-1" data-toggle="collapse" href="#ratings_filters">
       Show Filters
     </a>
   </div>
@@ -132,39 +132,39 @@
         <th>Actions</th>
       </tr>
 
-      <% @guestratings.each do |guestrating| %>
+      <% @ratings.each do |rating| %>
       <tr>
         <td>
-          <% if guestrating.host.present? %>
-            <a href="/hosts/<%= guestrating.host.id %>">
-              <%= guestrating.host.email %>
+          <% if rating.host.present? %>
+            <a href="/hosts/<%= rating.host.id %>">
+              <%= rating.host.email %>
             </a>
           <% end %>
         </td>
         <td>
-          <% if guestrating.guest.present? %>
-            <a href="/guests/<%= guestrating.guest.id %>">
-              <%= guestrating.guest.created_at %>
+          <% if rating.guest.present? %>
+            <a href="/guests/<%= rating.guest.id %>">
+              <%= rating.guest.created_at %>
             </a>
           <% end %>
         </td>
         <td>
-          <% if guestrating.booking.present? %>
-            <a href="/bookings/<%= guestrating.booking.id %>">
-              <%= guestrating.booking.guest_id %>
+          <% if rating.booking.present? %>
+            <a href="/bookings/<%= rating.booking.id %>">
+              <%= rating.booking.guest_id %>
             </a>
           <% end %>
         </td>
-        <td><%= guestrating.body %></td>
-        <td><%= guestrating.rating %></td>
+        <td><%= rating.body %></td>
+        <td><%= rating.rating %></td>
         <td>
-          <a href="/guestratings/<%= guestrating.id %>" class="btn btn-primary">Show</a>
-          <a href="/guestratings/<%= guestrating.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_guestrating/<%= guestrating.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <a href="/ratings/<%= rating.id %>" class="btn btn-primary">Show</a>
+          <a href="/ratings/<%= rating.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_rating/<%= rating.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
         </td>
       </tr>
       <% end %>
     </table>
-    <%= paginate @guestratings, theme: 'twitter-bootstrap-4' %>
+    <%= paginate @ratings, theme: 'twitter-bootstrap-4' %>
   </div>
 </div>

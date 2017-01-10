@@ -1,4 +1,4 @@
-class Guestrating < ApplicationRecord
+class Rating < ApplicationRecord
   # Direct associations
 
   belongs_to :booking
